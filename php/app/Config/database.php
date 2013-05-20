@@ -93,7 +93,7 @@
 }*/
 class DATABASE_CONFIG {
     public $default = array(
-        'datasource' => 'Mongodb.MongodbSource',
+        'datasource' => 'Mongodb.mongodbSource',
         'host' => '',
         'database' => 'weborion',
         'port' => null,
