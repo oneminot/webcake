@@ -58,7 +58,7 @@
  * For MySQL to connect via socket specify the `unix_socket` parameter instead of `host` and `port`
  */
 
-class DATABASE_CONFIG {
+/*class DATABASE_CONFIG {
         public $default = array(
                 'datasource' => 'Database/Mysql',
                 'persistent' => false,
@@ -90,4 +90,29 @@ class DATABASE_CONFIG {
 	       $this->default['password'] = getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
 	       $this->default['database'] = getenv("OPENSHIFT_APP_NAME");
 	}
+}*/
+class DATABASE_CONFIG {
+    public $default = array(
+        'datasource' => 'Mongodb.MongodbSource',
+        'host' => 'localhost',
+        'database' => 'weborion',
+        'port' => 27017,
+        'prefix' => '',
+        'persistent' => 'true',
+        /* optional auth fields
+        'login' => 'mongo', 
+        'password' => 'awesomeness',
+        'replicaset' => array('host' => 'mongodb://hoge:hogehoge@localhost:27021,localhost:27022/blog', 
+                              'options' => array('replicaSet' => 'myRepl')
+                     ),
+        */
+    );
+
+    // To make sure all tests are passing create the following entry in app/Config/database.php
+    public $test = array(
+        'datasource' => 'Mongodb.MongodbSource',
+        'database' => 'weborion',
+        'host' => 'localhost',
+        'port' => 27017,
+    ); 
 }

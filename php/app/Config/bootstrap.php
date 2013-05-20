@@ -160,6 +160,7 @@ Cache::config('default', array('engine' => 'File'));
  *
  * ));
  */
+CakePlugin::load('Mongodb');
 Configure::write('Dispatcher.filters', array(
 	'AssetDispatcher',
 	'CacheDispatcher'
@@ -179,3 +180,5 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+
