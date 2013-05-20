@@ -94,18 +94,18 @@
 class DATABASE_CONFIG {
     public $default = array(
         'datasource' => 'Mongodb.MongodbSource',
-        'host' => 'localhost',
+        'host' => '',
         'database' => 'weborion',
-        'port' => 27017,
+        'port' => null,
         'prefix' => '',
         'persistent' => 'true',
-        /* optional auth fields
-        'login' => 'mongo', 
-        'password' => 'awesomeness',
-        'replicaset' => array('host' => 'mongodb://hoge:hogehoge@localhost:27021,localhost:27022/blog', 
+         //optional auth fields
+        'login' => 'admin', 
+        'password' => '7K3sSADe2diu',
+        /*'replicaset' => array('host' => 'mongodb://hoge:hogehoge@localhost:27021,localhost:27022/blog', 
                               'options' => array('replicaSet' => 'myRepl')
-                     ),
-        */
+                     ),*/
+        
     );
 
     // To make sure all tests are passing create the following entry in app/Config/database.php

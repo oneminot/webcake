@@ -160,8 +160,8 @@ Cache::config('default', array('engine' => 'File'));
  *
  * ));
  */
-//CakePlugin::load('Mongodb');
-CakePlugin::loadAll();
+CakePlugin::load('Mongodb');
+//CakePlugin::loadAll();
 Configure::write('Dispatcher.filters', array(
 	'AssetDispatcher',
 	'CacheDispatcher'
