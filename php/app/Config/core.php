@@ -24,8 +24,8 @@ include(dirname(dirname(dirname(dirname(__FILE__)))) . DS . 'libs' . DS . 'opens
 
 // Set the default keys to use
 $_default_keys = array(
-    'Security.salt'       => 'DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgaC9mi',
-    'Security.cipherSeed' => '76859309657453542496749683645'
+    'Security.salt'       => 'wecake@123',
+    'Security.cipherSeed' => '171117'
 );
 
 // This function gets called by openshift_secure and passes an array

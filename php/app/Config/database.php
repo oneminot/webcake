@@ -94,14 +94,16 @@
 class DATABASE_CONFIG {
     public $default = array(
         'datasource' => 'Mongodb.MongodbSource',
-        'host' => '',
-        'database' => 'weborion',
+        'host' => 'localhost',
+        'database' => 'green',
         'port' => null,
         'prefix' => '',
         'persistent' => 'true',
          //optional auth fields
-        'login' => 'admin', 
-        'password' => '7K3sSADe2diu',
+        //'login' => 'admin', 
+        //'password' => '7K3sSADe2diu',
+        'login' => '', 
+        'password' => '',
         /*'replicaset' => array('host' => 'mongodb://hoge:hogehoge@localhost:27021,localhost:27022/blog', 
                               'options' => array('replicaSet' => 'myRepl')
                      ),*/
