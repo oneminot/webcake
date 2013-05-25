@@ -1,8 +1,8 @@
 <?php
 class UsersController extends AppController {
     //var $name = 'Users';
-    //var $components = array('Auth'); 
-	var $components = array('Session', 'Auth' => array(
+    var $components = array('Auth'); 
+	/*var $components = array('Session', 'Auth' => array(
     'loginAction' => array(
         'controller' => 'pages',
         'action' => 'home'
@@ -12,7 +12,7 @@ class UsersController extends AppController {
             'fields' => array('username' => 'username', 'password' => 'password')
         )
     )
-	));
+	));*/
     function login() 
     {
 	    /*if ($this->Auth->login()) {
