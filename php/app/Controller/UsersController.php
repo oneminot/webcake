@@ -2,7 +2,7 @@
 class UsersController extends AppController {
     //var $name = 'Users';
     //var $components = array('Auth'); 
-	var $components = array('DebugKit.Toolbar', 'Session', 'Auth' => array(
+	var $components = array('Session', 'Auth' => array(
     'loginAction' => array(
         'controller' => 'pages',
         'action' => 'home'

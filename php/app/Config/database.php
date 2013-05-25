@@ -94,7 +94,7 @@
 class DATABASE_CONFIG {
     public $default = array(
         'datasource' => 'Mongodb.MongodbSource',
-        'host' => 'localhost',
+        'host' => '127.13.73.129' ,
         'database' => 'green',
         'port' => null,
         'prefix' => '',
@@ -102,8 +102,8 @@ class DATABASE_CONFIG {
          //optional auth fields
         //'login' => 'admin', 
         //'password' => '7K3sSADe2diu',
-        'login' => '', 
-        'password' => '',
+        'login' => 'admin', 
+        'password' => '7K3sSADe2diu',
         /*'replicaset' => array('host' => 'mongodb://hoge:hogehoge@localhost:27021,localhost:27022/blog', 
                               'options' => array('replicaSet' => 'myRepl')
                      ),*/
