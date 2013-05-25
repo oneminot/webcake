@@ -58,15 +58,37 @@
  * For MySQL to connect via socket specify the `unix_socket` parameter instead of `host` and `port`
  */
 
-/*class DATABASE_CONFIG {
+class DATABASE_CONFIG {
         public $default = array(
                 'datasource' => 'Database/Mysql',
                 'persistent' => false,
-                'host'       => '',
-                'port'       => '',
-                'login'      => '',
-                'password'   => '',
-                'database'   => '',
+                'host'       => '127.13.73.129',
+                'port'       => '3306',
+                'login'      => 'admincmPLrb7',
+                'password'   => 'iDieI6RZhux8',
+                'database'   => 'green',
+                'prefix'     => '',
+                //'encoding' => 'utf8',
+        );
+        public $test = array(
+                'datasource' => 'Database/Mysql',
+                'persistent' => false,
+                'host'       => 'localhost',
+				'port'       => '3306',
+                'login'      => 'admincmPLrb7',
+                'password'   => 'iDieI6RZhux8',
+                'database'   => 'green',
+                'prefix'     => '',
+                //'encoding' => 'utf8',
+        );
+		/*public $default = array(
+                'datasource' => 'Database/Mysql',
+                'persistent' => false,
+                'host'       => 'localhost',
+                'port'       => '3306',
+                'login'      => 'user',
+                'password'   => 'user',
+                'database'   => 'green',
                 'prefix'     => '',
                 //'encoding' => 'utf8',
         );
@@ -74,14 +96,14 @@
         public $test = array(
                 'datasource' => 'Database/Mysql',
                 'persistent' => false,
-                'host'       => '',
-		'port'       => '',
-                'login'      => '',
-                'password'   => '',
-                'database'   => 'test_database',
+                'host'       => 'localhost',
+				'port'       => '3306',
+                'login'      => 'user',
+                'password'   => 'user',
+                'database'   => 'green',
                 'prefix'     => '',
                 //'encoding' => 'utf8',
-        );
+        );*/
 
 	public function __construct() {
 	       $this->default['host']     = getenv("OPENSHIFT_MYSQL_DB_HOST");
@@ -90,31 +112,5 @@
 	       $this->default['password'] = getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
 	       $this->default['database'] = getenv("OPENSHIFT_APP_NAME");
 	}
-}*/
-class DATABASE_CONFIG {
-    public $default = array(
-        'datasource' => 'Mongodb.MongodbSource',
-        'host' => '127.13.73.129' ,
-        'database' => 'green',
-        'port' => 27017,
-        'prefix' => '',
-        'persistent' => 'true',
-         //optional auth fields
-        //'login' => 'admin', 
-        //'password' => '7K3sSADe2diu',
-        'login' => 'admin', 
-        'password' => '7K3sSADe2diu',
-        /*'replicaset' => array('host' => 'mongodb://hoge:hogehoge@localhost:27021,localhost:27022/blog', 
-                              'options' => array('replicaSet' => 'myRepl')
-                     ),*/
-        
-    );
-
-    // To make sure all tests are passing create the following entry in app/Config/database.php
-    public $test = array(
-        'datasource' => 'Mongodb.MongodbSource',
-        'database' => 'weborion',
-        'host' => 'localhost',
-        'port' => 27017,
-    ); 
 }
+
