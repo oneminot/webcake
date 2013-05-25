@@ -1,33 +1,24 @@
 <?php
-class User extends AppModel {
-	
-    public $validate = array(
-        'username' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'A username is required'
-            )
-        ),
-        'password' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'A password is required'
-            )
-        ),
-        'role' => array(
-            'valid' => array(
-                'rule' => array('inList', array('admin', 'author')),
-                'message' => 'Please enter a valid role',
-                'allowEmpty' => false
-            )
-        )
-    );
+class User extends AppModel
+{
+    var $name = 'User';
     
-	public function beforeSave($options = array()) {
-    if (isset($this->data[$this->alias]['password'])) {
-        $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
+    function validateLogin($data)
+    {
+        /*echo "In Model";exit;
+    	$user = $this->find(array('username' => $data['username'], 'password' => ($data['password'])));
+        print_r($user);exit;
+        if(empty($user) == false)
+            return $user['User'];
+        return false;*/
+    	$sucess= true;
+    	if($sucess)
+    	{
+    		return true;
+        
+    	}else {
+    		return false;
+    	}
     }
-    return true;
-}
-}
-
+    
+} 

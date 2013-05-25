@@ -34,7 +34,7 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
     //...
 
-    public $components = array(
+    /*public $components = array(
         'Session',
         'Auth' => array(
             'loginRedirect' => array('controller' => 'posts', 'action' => 'index'),
@@ -45,6 +45,24 @@ class AppController extends Controller {
 
     public function beforeFilter() {
         $this->Auth->allow('index', 'view');
-    }
+    }*/
     //...
+    function authenticate()
+    {
+        // Check if the session variable User exists, redirect to loginform if not
+        if(!$this->Session->check('User'))
+        {
+            $this->redirect(array('controller' => 'users', 'action' => 'login_form'));
+            exit();
+        }
+    }
+ 
+    // Authenticate on every action, except the login form
+    function afterFilter()
+    {
+        if( $this->action != 'login' )
+        {
+            $this->authenticate();
+        }
+    }
 }

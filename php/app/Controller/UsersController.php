@@ -1,76 +1,60 @@
-<?php
-class UsersController extends AppController {
-
-    public function beforeFilter() {
-        parent::beforeFilter();
-        $this->Auth->allow('add');
+ <?php 
+class UsersController extends AppController
+{
+    var $name = "Users";
+    var $helpers = array('Html', 'Form');
+    
+    function index()
+    {
+        
     }
-
-    public function index() {
-        $this->User->recursive = 0;
-        $this->set('users', $this->paginate());
+    
+    function beforeFilter()
+    {
+       // $this->__validateLoginStatus();
     }
-
-    public function view($id = null) {
-        $this->User->id = $id;
-        if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
-        }
-        $this->set('user', $this->User->read(null, $id));
-    }
-
-    public function add() {
-        if ($this->request->is('post')) {
-            $this->User->create();
-            if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+    
+    function login()
+    {
+		//var_dump($this->data);
+    	if(empty($this->data) == false)
+        {
+            if(($user = $this->User->validateLogin($this->data['User'])) == true)
+            {
+                $this->Session->write('User', $user);
+                $this->Session->setFlash('You\'ve successfully logged in.');
+                $this->redirect('index');
+                exit();
+            }
+            else
+            {
+               // echo "Not Login";exit;
+            	$this->Session->setFlash('Sorry, the information you\'ve entered is incorrect.');
+            	$this->redirect('login');
+                exit();
             }
         }
     }
-
-    public function edit($id = null) {
-        $this->User->id = $id;
-        if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
-        }
-        if ($this->request->is('post') || $this->request->is('put')) {
-            if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+    
+    function logout()
+    {
+        $this->Session->destroy('user');
+        $this->Session->setFlash('You\'ve successfully logged out.');
+        $this->redirect('login');
+    }
+        
+    /*function __validateLoginStatus()
+    {
+        if($this->action != 'login' && $this->action != 'logout')
+        {
+            if($this->Session->check('User') == false)
+            {
+                $this->redirect('login');
+                $this->Session->setFlash('The URL you\'ve followed requires you login.');
             }
-        } else {
-            $this->request->data = $this->User->read(null, $id);
-            unset($this->request->data['User']['password']);
         }
-    }
+    }*/
+    
+}
 
-    public function delete($id = null) {
-        if (!$this->request->is('post')) {
-            throw new MethodNotAllowedException();
-        }
-        $this->User->id = $id;
-        if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
-        }
-        if ($this->User->delete()) {
-            $this->Session->setFlash(__('User deleted'));
-            $this->redirect(array('action' => 'index'));
-        }
-        $this->Session->setFlash(__('User was not deleted'));
-        $this->redirect(array('action' => 'index'));
-    }
-	public function login() {
-    if ($this->request->is('post')) {
-        if ($this->Auth->login()) {
-            $this->redirect($this->Auth->redirect());
-        } else {
-            $this->Session->setFlash(__('Invalid username or password, try again'));
-        }
-    }
-}
-}
+?> 
