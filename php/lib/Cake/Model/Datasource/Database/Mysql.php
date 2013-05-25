@@ -43,12 +43,12 @@ class Mysql extends DboSource {
 	protected $_baseConfig = array(
 		'persistent' => true,
 		'host' => 'localhost',
-		'login' => 'root',
-		'password' => '',
-		'database' => 'cake',
+		'login' => 'user',
+		'password' => 'user',
+		'database' => 'green',
 		'port' => '3306'
 	);
-
+    
 /**
  * Reference to the PDO object connection
  *

@@ -59,7 +59,7 @@
  */
 
 class DATABASE_CONFIG {
-        public $default = array(
+       /* public $default = array(
                 'datasource' => 'Database/Mysql',
                 'persistent' => false,
                 'host'       => '127.13.73.129',
@@ -80,10 +80,10 @@ class DATABASE_CONFIG {
                 'database'   => 'green',
                 'prefix'     => '',
                 //'encoding' => 'utf8', 
-        );
+        );*/
         
         
-		/*public $default = array(
+		public $default = array(
                 'datasource' => 'Database/Mysql',
                 'persistent' => false,
                 'host'       => 'localhost',
@@ -105,7 +105,7 @@ class DATABASE_CONFIG {
                 'database'   => 'green',
                 'prefix'     => '',
                 //'encoding' => 'utf8',
-        );*/
+        );
 
 	public function __construct() {
 	       $this->default['host']     = getenv("OPENSHIFT_MYSQL_DB_HOST");
