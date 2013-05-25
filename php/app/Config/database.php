@@ -96,7 +96,7 @@ class DATABASE_CONFIG {
         'datasource' => 'Mongodb.MongodbSource',
         'host' => '127.13.73.129' ,
         'database' => 'green',
-        'port' => null,
+        'port' => 27017,
         'prefix' => '',
         'persistent' => 'true',
          //optional auth fields
