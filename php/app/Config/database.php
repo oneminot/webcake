@@ -79,8 +79,10 @@ class DATABASE_CONFIG {
                 'password'   => 'iDieI6RZhux8',
                 'database'   => 'green',
                 'prefix'     => '',
-                //'encoding' => 'utf8',
+                //'encoding' => 'utf8', 
         );
+        
+        
 		/*public $default = array(
                 'datasource' => 'Database/Mysql',
                 'persistent' => false,
